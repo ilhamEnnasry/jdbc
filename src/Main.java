@@ -2,13 +2,12 @@ import java.sql.*;
 
 public class Main {
     public static void main(String[] args) {
-        String url = "jdbc:mysql://localhost:3306/javamysql";
-        String user = "root";
-        String password = "Root@123";
 
         try {
-            // Create connection
-            Connection connection = DriverManager.getConnection(url, user, password);
+            // Get the Singleton instance
+            DatabaseConnection db = DatabaseConnection.getInstance();
+            // Get the database connection
+            Connection connection = db.getConnection();
             System.out.println("Connected to database successfully");
 
             // Create Statement
